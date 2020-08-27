@@ -1,0 +1,81 @@
+{
+  "name": "next-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.35",
+    "@reach/combobox": "^0.11.0",
+    "@reach/dialog": "^0.11.0",
+    "axios": "^0.20.0",
+    "fwego": "^0.14.1",
+    "lodash": "^4.17.20",
+    "next": "9.5.2",
+    "pg-promise": "^10.6.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-emotion": "^10.0.33",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "prettier": "^2.1.1"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "prettier",
+      "prettier/react"
+    ],
+    "plugins": [
+      "prettier",
+      "react",
+      "react-hooks"
+    ],
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "jest": true,
+      "node": true,
+      "browser": true
+    },
+    "rules": {
+      "no-empty": "off",
+      "prettier/prettier": "error",
+      "react/display-name": "off",
+      "react/prop-types": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  }
+}
