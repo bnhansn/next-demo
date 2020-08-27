@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Box, Flex, Heading } from 'fwego'
-import axios from '../utils/axios'
+import axios from 'axios'
 import VideoGrid from './VideoGrid'
 
 export default function ChannelVideos({ children, channel }) {

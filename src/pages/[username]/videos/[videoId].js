@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import axios from '../../../utils/axios'
+import axios from 'axios'
 import ChannelVideos from '../../../components/ChannelVideos'
 import VideoModal from '../../../components/VideoModal'
 

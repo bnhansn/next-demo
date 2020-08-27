@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import axios from '../../utils/axios'
+import axios from 'axios'
 import DiscoverVideos from '../../components/DiscoverVideos'
 import VideoModal from '../../components/VideoModal'
 

@@ -8,13 +8,7 @@ const token =
     ? publicRuntimeConfig.prodToken
     : publicRuntimeConfig.devToken
 
-const apiHost = publicRuntimeConfig.apiHost
-
-export default axios.create({
-  baseURL: apiHost,
-  headers: {
-    Accept: 'application/json',
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json'
-  }
-})
+axios.defaults.baseURL = publicRuntimeConfig.apiHost
+axios.defaults.headers.common.Accept = 'application/json'
+axios.defaults.headers.common.Authorization = `Bearer ${token}`
+axios.defaults.headers.common['Content-Type'] = 'application/json'

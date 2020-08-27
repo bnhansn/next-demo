@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import uniqBy from 'lodash/uniqBy'
-import axios from '../utils/axios'
+import axios from 'axios'
 import VideoGrid from './VideoGrid'
 
 export default function DiscoverVideos({ children }) {
