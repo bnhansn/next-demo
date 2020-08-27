@@ -4,12 +4,17 @@ import { Box, Flex, Heading } from 'fwego'
 import axios from 'axios'
 import VideoGrid from './VideoGrid'
 
-export default function ChannelVideos({ children, channel }) {
+export default function ChannelVideos({
+  children,
+  channel,
+  username: usernameFromSubdomain
+}) {
   const [videos, setVideos] = useState([])
   const [paging, setPaging] = useState({})
   const [loading, setLoading] = useState({})
   const router = useRouter()
-  const { username } = router.query
+  const { username: usernameFromQueryPath } = router.query
+  const username = usernameFromSubdomain || usernameFromQueryPath
 
   useEffect(() => {
     async function fetchVideos() {
