@@ -1,9 +1,13 @@
 import React from 'react'
 import axios from 'axios'
 import Head from 'next/head'
+import getConfig from 'next/config'
+import { withServerSession } from '../utils/session'
 import ChannelVideos from '../components/ChannelVideos'
 
-export default function Home({ channel }) {
+const { publicRuntimeConfig } = getConfig()
+
+export default function Home({ channel, currentUser }) {
   if (channel) {
     return (
       <Head>
@@ -11,7 +15,13 @@ export default function Home({ channel }) {
       </Head>
     )
   }
-  return <h1>Welcome Home</h1>
+  return (
+    <div>
+      <h1>Welcome Home</h1>
+      <div>Vercel url: {publicRuntimeConfig.vercelUrl}</div>
+      <div>Current user: {currentUser && JSON.stringify(currentUser)}</div>
+    </div>
+  )
 }
 
 Home.getLayout = (page) => {
@@ -22,10 +32,16 @@ Home.getLayout = (page) => {
   return page
 }
 
-export async function getServerSideProps(context) {
-  const host = context.req.headers.host
+function getUsernameFromSubdomain(req) {
+  const host = req.headers.host
   const subdomainMatches = host.match(/([^.]+)\.[\s\S]+\.[\s\S]+/)
   const username = subdomainMatches && subdomainMatches[1]
+  return username
+}
+
+export const getServerSideProps = withServerSession(async ({ req }) => {
+  const username = getUsernameFromSubdomain(req)
+  const currentUser = req.session.get('user') || null
   let channel = null
   if (username) {
     try {
@@ -36,7 +52,8 @@ export async function getServerSideProps(context) {
   return {
     props: {
       username: username,
-      channel: channel
+      channel: channel,
+      currentUser: currentUser
     }
   }
-}
+})
