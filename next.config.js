@@ -9,6 +9,8 @@ module.exports = {
     devToken: process.env.DEMO_FW_DEV_TOKEN,
     prodToken: process.env.DEMO_FW_PROD_TOKEN,
     vercelUrl: process.env.VERCEL_URL,
-    domain: process.env.DOMAIN
+    domain: process.env.DOMAIN,
+    oauthHost: process.env.OAUTH_HOST,
+    oauthClientId: process.env.OAUTH_CLIENT_ID
   }
 }
