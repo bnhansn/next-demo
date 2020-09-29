@@ -15,8 +15,8 @@ export function withServerSession(handler) {
     cookieOptions: {
       httpOnly: true,
       maxAge: cookieMaxAgeInSeconds,
-      secure: process.env.NODE_ENV === 'production'
-      // domain: publicRuntimeConfig.vervelUrl
+      secure: process.env.NODE_ENV === 'production',
+      domain: publicRuntimeConfig.vervelUrl
     }
   })
 }
