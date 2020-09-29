@@ -16,7 +16,7 @@ export function withServerSession(handler) {
       httpOnly: true,
       maxAge: cookieMaxAgeInSeconds,
       secure: process.env.NODE_ENV === 'production',
-      domain: publicRuntimeConfig.vervelUrl
+      domain: publicRuntimeConfig.domain
     }
   })
 }

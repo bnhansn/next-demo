@@ -3,7 +3,6 @@ import { withServerSession } from '../../utils/session'
 export default withServerSession(async (req, res) => {
   try {
     const { username } = req.query
-    console.log('username', username)
     if (username) {
       req.session.set('user', { username })
       await req.session.save()

@@ -8,6 +8,7 @@ module.exports = {
     apiHost: process.env.API_HOST,
     devToken: process.env.DEMO_FW_DEV_TOKEN,
     prodToken: process.env.DEMO_FW_PROD_TOKEN,
-    vercelUrl: process.env.VERCEL_URL
+    vercelUrl: process.env.VERCEL_URL,
+    domain: process.env.DOMAIN
   }
 }
