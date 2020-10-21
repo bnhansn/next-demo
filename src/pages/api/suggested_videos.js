@@ -1,3 +1,14 @@
+import Cors from 'cors'
+import { initMiddleware } from '../../utils/middleware'
+
+// Initialize the cors middleware
+const cors = initMiddleware(
+  Cors({
+    // Only allow requests with GET, POST and OPTIONS
+    methods: ['GET', 'POST', 'OPTIONS']
+  })
+)
+
 const videos = [
   {
     id: 1,
@@ -98,6 +109,8 @@ const videos = [
 ]
 
 export default async (req, res) => {
+  await cors(req, res)
+
   try {
     res.json({ videos })
   } catch (error) {
